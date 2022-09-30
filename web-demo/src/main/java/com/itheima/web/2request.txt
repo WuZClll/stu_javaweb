@@ -1,0 +1,57 @@
+request:请求
+*request继承体系
+    Request继承体系---------->ServletRequestJava提供的请求对象根接口
+         ↑
+    HttpServletRequest----->Java提供的对Http协议封装的请求对象接口
+         ↑
+    RequestFacade---------->Tomcat定义的实现类
+
+    1. Tomcat需要解析请求数据，封装为request对象，并且创建request对象传递到service方法中
+    2.使用request对象，查阅JavaEE API文档的HttpServletRequest接口
+
+
+
+*Request 获取请求数据  RequestDemo1 & req1.html
+    请求数据分为3部分:
+        1．请求行:GET /request-demo/req1?username=zhangsan HTTP/1.1
+            . String getMethod():获取请求方式: GET
+            . String getContextPath():获取虚拟目录(项目访问路径): /request-demo
+            . StringBuffer getRequestURL():获取URL(统一资源定位符): http://localhost:8080/request-demo/re. String getRequestURI():获取URI(统一资源标识符): /request-demo/req1
+            . String getQueryString():获取请求参数（GET方式): username=zhangsan&password=123
+        2.请求头: User-Agent: Mozilla/5.0 Chrome/91.0.4472.106
+            . String getHeader(String name):根据请求头名称，获取值
+
+        3．请求体:username=superbaby&password=123
+            .ServletInputStream getInputStream():获取字节输入流
+            .BufferedReader getReader():获取字符输入流
+
+
+*Request通用方式获取请求参数  RequestDemo2 & req2,html
+    . Map<String, String[ >getParameterMap():获取所有参数Map集合
+    . String[ ] getParameterValues(String name)︰根据名称获取参数值（数组)
+    . String getParameter(String name):根据名称获取参数值（单个值)
+
+快捷方式 右键→new→Servlet直接生成   RequestDemo4
+
+修改模板
+Settings->Editir->File and Code Templates->Other->Web->Java code templates->Servlet Annotated Class
+
+中文乱码解决RequestDemo5 & URLDemo & req4.html
+Tomcat 8.0之后，已将GET请求乱码问题解决，设置默认的解码方式为UTF-8
+
+
+请求转发(forward)   RequestDemo5 & RequestDemo6
+请求转发(forward):一种在服务器（tomcat）内部的资源跳转方式
+    浏|-------请求------> 资源A 口|tom
+    览|                  ↓共享   |cat
+    器|<------响应--------资源B 口|
+请求转发特点:
+    >浏览器地址栏路径不发生变化
+    >只能转发到当前服务器的内部资源
+    >—次请求，可以在转发的资源间使用request共享数据
+实现方式:
+    req.getRequestDispatcher("资源B路径").forward(req,resp);
+请求转发资源间共享数据:使用Request对象
+    void setAttribute(String name, Object o):存储数据到request域中
+    Object getAttribute(String name):根据key，获取值
+    void removeAttribute(String name):根据key，删除该键值对

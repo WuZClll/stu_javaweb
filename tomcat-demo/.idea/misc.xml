@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/../ajax-demo" />
+    <file type="web" url="file://$PROJECT_DIR$/../brand-case" />
+    <file type="web" url="file://$PROJECT_DIR$/../brand-demo" />
+    <file type="web" url="file://$PROJECT_DIR$/../brand-demo-finally" />
+    <file type="web" url="file://$PROJECT_DIR$/../brand-demo-rel-finally" />
+    <file type="web" url="file://$PROJECT_DIR$/../cookie-demo" />
+    <file type="web" url="file://$PROJECT_DIR$/../filter-demo" />
+    <file type="web" url="file://$PROJECT_DIR$/../jsp-demo" />
+    <file type="web" url="file://$PROJECT_DIR$/../request-demo" />
+    <file type="web" url="file://$PROJECT_DIR$" />
+    <file type="web" url="file://$PROJECT_DIR$/../vue-demo" />
+    <file type="web" url="file://$PROJECT_DIR$/../web-demo" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/../web-demo/pom.xml" />
+        <option value="$PROJECT_DIR$/../jsp-demo/pom.xml" />
+        <option value="$PROJECT_DIR$/../brand-demo/pom.xml" />
+        <option value="$PROJECT_DIR$/../cookie-demo/pom.xml" />
+        <option value="$PROJECT_DIR$/../brand-demo-finally/pom.xml" />
+        <option value="$PROJECT_DIR$/../filter-demo/pom.xml" />
+        <option value="$PROJECT_DIR$/../ajax-demo/pom.xml" />
+        <option value="$PROJECT_DIR$/../brand-demo-rel-finally/pom.xml" />
+        <option value="$PROJECT_DIR$/../vue-demo/pom.xml" />
+        <option value="$PROJECT_DIR$/../brand-case/pom.xml" />
+      </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/ajax-demo/pom.xml" />
+        <option value="$PROJECT_DIR$/brand-demo-rel-demo/pom.xml" />
+        <option value="$PROJECT_DIR$/cookie-demo/pom.xml" />
+        <option value="$PROJECT_DIR$/request-demo/pom.xml" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="17" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

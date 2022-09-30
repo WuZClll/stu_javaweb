@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+<!--v-bind 绑定  可以写href或css-->
+   <a v-bind:href="url">点击一下</a>
+<!--v-bind 可以省略
+    简化书写-->
+    <a :href="url">点击一下</a>
+
+<!--    v-model：在表单元素上创建双向数据绑定-->
+    <input v-model="url">
+
+</div>
+
+<script src="js/vue.js"></script>
+<script>
+
+    //1. 创建Vue核心对象
+    new Vue({
+        el:"#app",
+        data(){
+            return {
+                username:"",
+                url:"https://www.baidu.com"
+            }
+        }
+    });
+
+</script>
+
+
+</body>
+</html>

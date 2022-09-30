@@ -1,0 +1,66 @@
+Maven基本使用
+  Maven常用命令
+    compile:编译  生成的编译文件（字节码文件）在target目录中
+    clean:清理
+    test:测试   运行test中测试文件（以Test开始或以Test结尾的文件）
+    package:打包  将项目打包成jar包到target目录内
+    install:安装  将当前项目安装到本地 我的C:\YXHuanjing\apache-maven-3.8.6-bin\apache-maven-3.8.6\mvn_resp\org\example目录内
+
+PowerShell中
+ 1.cd C:\Users\^\Documents\Tencent" "Files\1302344595\FileRecv\ideaProject\mavenProject回车
+ 2.mvn +命令
+
+ Maven 基本使用
+ Maven生命周期
+ Maven构建项目生命周期描述的是一次构建过程经历经历了多少个事件Maven对项目构建的生命周期划分为3套
+ clean:清理工作
+ default:核心工作，例如编译，测试，打包，安装等
+ site: 产生报告，发布站点等
+   同一生命周期内，执行后边的命令，前边的所有命令会自动执行
+ pre-clean  clean  post-clean →
+ compile  test  package  install →
+ pre-site  site  post-site
+
+
+IDEA 配置Maven 环境
+1．选择IDEA中 File --> Settings
+2．搜索maven
+3．设置IDEA使用本地安装的Maven，并修改配置文件路径
+
+
+Maven坐标详解
+什么是坐标?
+    Maven中的坐标是资源的唯一标识
+    使用坐标来定义项目或引入项目中需要的依赖
+Maven坐标主要组成
+    groupId:定义当前Maven项目隶属组织名称（通常是域名反写，例如: com.itheima)
+    artifactId:定义当前Maven项目名称(通常是模块名称，例如order-service、goods-service)
+    version:定义当前项目版本号
+eg:
+     <groupId>com.itheima</groupId>
+     <artifactId>maven-demo</artifactId>
+     <version>1.0-SNAPsHOT</version>
+eg:
+     <dependency>
+         <groupId>mysql</groupId>
+         <artifactId>mysql-connector-java</artifactId>
+         <version>5.1.46</version>
+     </dependency>
+
+             <dependency>
+                 <groupId>org.junit.jupiter</groupId>
+                 <artifactId>junit-jupiter</artifactId>
+                 <version>RELEASE</version>
+                 <scope>test</scope><!-- 依赖范围 -->
+                 <!--
+                 依赖范围        编译classpath        测试classpath        运行classpath        例子
+                 compile       Y                   Y                    Y                   logback
+                 test          -                   Y                    -                   Junit
+                 provided      Y                   Y                    -                   servlet-api
+                 runtime       Y                   Y                    Y                   jdbc驱动
+                 system        Y                   Y                    -                   存储在本地的jar包
+                 import                            引入DependencyManagement
+
+                 <scope>默认值: compile
+                 -->
+             </dependency>

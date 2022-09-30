@@ -1,0 +1,58 @@
+
+Servlet生命周期
+    ·对象的生命周期指一个对象从被创建到被销毁的整个过程
+Servlet运行在servlet容器(web服务器)中，其生命周期由容器来管理，分为4个阶段:
+    1.加载和实例化:   默认情况下，当Servlet第一次被访问时，由容器创建servlet对象
+    2. 初始化:     在Servlet实例化之后，容器将调用Servlet的init()方法初始化这个对象，完成一些如
+    加载配置文件、创建连接等初始化的工作。该方法只调用一次
+    3.请求处理:     每次请求servlet时，Servlet容器都会调用Servlet的service()方法对请求进行处理。
+    4.服务终止:     当需要释放内存或者容器关闭时，容器就会调用Servlet实例的destroy()方法完成
+    资源的释放。在destroy()方法调用之后，容器会释放这个Servlet实例，该实例随后会被Java的垃坡收集器所回收
+
+@WebServlet(urlPatterns = "/demo",loadOnStartup =1)
+①负整数:第一次被访问时创建Servlet对象
+②0或正整数:服务器启动时创建Servlet对象，数字越小优先级越高
+
+Servlet体系结构
+servlet------------Servlet体系根接口
+   ↓                     ↓
+GenericServlet-----Servlet抽象实现类
+   ↓                     ↓
+HttpServlet--------对HTTP协议封装的Servlet实现类
+我们将来开发B/S架构的web项目，都是针对HTTP协议
+，所以我们自定义Servlet，会继承HttpServlet
+
+
+1. HttpServlet使用步骤
+①继承HttpServlet
+②重写doGet和doPost方法
+2. HttpServlet原理
+获取请求方式，并根据不同的请求方式，调用不同的doXxx方法
+
+Servlet urlPattern配置
+2.urlPattern配置规则:
+    精确匹配:
+        配置路径:@WebServlet( " /user/select" )
+        访问路径:localhost:8080/web-demo/user/select
+    目录匹配:
+        配置路径:@webServlet(" /user/*")
+    访问路径:.
+        localhost:8080/web-demo/user/aaa
+        localhost:8080/web-demo/user/bbb
+    扩展名匹配:
+        配置路径:@WebServlet( "* .do")
+    访问路径:
+        localhost:8080/web-demo/aaa.do
+        localhost8080/web-demo/bbb.do
+    任意匹配:
+        配置路径:
+            @WebServlet(" / ")
+            @WebServlet("/*")
+        访问路径:
+        localhost:8080/web-demo/hehe
+        localhost8080/web-demo/haha
+    /和/*区别:
+        当我们的项目中的Servlet配置了“/”，会覆盖掉tomcat中的DefaultServlet，当其他的url-pattern都匹配不上时都会走这个Servlet
+        当我们的项目中配置了“/*”，意味着匹配任意访问路径
+    优先级:
+        精确路径>目录路径>扩展名路径>/ * >/

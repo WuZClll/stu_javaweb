@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    MVVM:模型视图视图模型   双向展示</br>
+    <hr>
+    <p style="color: #e6a23c;display:inline">eg:</p>
+    <input v-model="username"><!--绑定模型-->
+    <!--插值表达式-->
+    <p style="color: #00ff00; display:inline">{{username}}</p><br>
+    <hr>
+    视图------>(模型)-------->视图
+
+</div>
+
+<script src="js/vue.js"></script>
+<script>
+
+    //1. 创建Vue核心对象
+    new Vue({
+        el:"#app",/*指定vue代码的作用范围*/
+        /*data: function () {
+            return {
+                username:""
+            }
+        }*/
+        data(){
+            return {
+                username:""
+            }
+        }
+
+    });
+
+</script>
+
+
+</body>
+</html>

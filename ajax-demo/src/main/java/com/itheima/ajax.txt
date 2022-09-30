@@ -1,0 +1,73 @@
+AJAX快速入门    AjaxServlet.java && 01.html &&  AJAX快速入门.png  https://www.w3school.com.cn/js/js_ajax_intro.asp
+步骤
+    1.编写AjaxServlet，并使用response输出字符串
+    2.创建XMLHttpRequest对象:用于和服务器交换数据
+
+        var xhttp;
+        if (window.XMLHttpRequest) {
+            //所有现代浏览器（Chrom、IE7+、Firefox、Safari 以及 Opera）都有内建的 XMLHttpRequest 对象。
+            //创建 XMLHttpRequest 的语法是：
+            xhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+    3.向服务器发送请求
+        xhttp.open("GET", "url");/*url要写全路径，将来html+ajax 和 Java代码真正分离，是两个项目*//*https://www.w3school.com.cn/js/js_ajax_http_send.asp*/
+        xhttp.send();/*发送请求*/
+
+    4.获取服务器响应数据
+        xhttp.onreadystatechange = function() {/*https://www.w3school.com.cn/js/js_ajax_http_response.asp*/
+            if (this.readyState == 4 && this.status == 200) {
+                   alert(this.responseText);/*hello ajax~*/
+            }
+        };
+
+
+Axios 快速入门      02.html && axios-0.18.0.js && axiosServle
+    1.引入axios的js文件
+        <script src="js/axios-0.18.0.js"></script>
+    ⒉.使用axios发送请求，并获取响应结果
+    axios({
+        method:"get",
+
+        url:"http://localhost:8080/ajax-demo1/aJAXDemo1?username=zhangsan"
+
+    }).then(function (resp){
+        alert(resp.data);
+    })
+
+    ——————————————————————————————————————————————————————————————————————————————————————————
+
+    axios({
+    method:"post"",
+
+        url:""http://localhost:8080/ajax-demo1/aJAXDemo1",
+        data:"username=zhangsan"
+
+    }).then(function (resp)i
+        alert(resp.data);
+    });
+
+
+Axios请求方式别名     03.html
+为了方便起见， Axios已经为所有支持的请求方法提供了别名。
+    axios.get(url[, config])
+    axios.delete(url[, config])
+    axios.head(url[, config])
+    axios.options(url[, config])
+    axios.post(url[, data[, config]])
+    axios.put(url[, data[, config]l)
+    axios.patch(url[, data[, config]l)
+eg:
+    发送get请求
+    axios.get("url")
+        .then(function (resp)
+        alert(resp.data);
+    });
+
+    发送post请求
+    axios.post(""url","参数")
+        .then(function (resp){
+        alert(resp.data);
+    });

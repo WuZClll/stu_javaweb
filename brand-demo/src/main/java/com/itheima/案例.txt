@@ -1,0 +1,20 @@
+准备环境
+    创建新的模块 brand_demo，引入坐标创建三层架构的包结构
+    数据库表mydb4----tb_brand
+    实体类Brand
+    MyBatis基础环境
+        .Mybatis-config.xml
+        ·BrandMapper.xml
+        .BrandMapper接口
+
+index.html：原始超链接页面
+brand.jsp:查询所有的结果页面
+addbrand.jsp：添加的页面，添加成功后转到brand.jsp页面
+MyBatis环境文件：
+    .Mybatis-config.xml：其内配置mysql，包扫描mapper文件位置com.itheima.mapper等
+    ·BrandMapper.xml--|此为映射文件
+    .BrandMapper接口---|与其映射，里面有sql语句的注释 和 所有方法
+SqlSessionFactoryUitls.java(工具类，其内为静态代码块，将Mybatis-config.xml文件存进去)-->BrandService.java-->SelectAllServlet《《《里面的关系是下一类创建前面类的对象，用对象调用方法》》》
+                                                                                                 \->AddServlet
+查询所有
+SelectAllServlet.java--调用BrandService完成查询--将值存入request域中--转发到brand.jsp-->brand.jsp

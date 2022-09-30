@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itheima.mapper.BrandMapper">
+
+    <resultMap id="brandResultMap" type="brand">
+        <result property="brandName" column="brand_name"/>
+        <result property="companyName" column="company_name"/>
+    </resultMap>
+
+    <!--    批量删除-->
+    <delete id="deleteByIds">
+        delete from tb_brand1 where id in/*(?,?,?)*/
+        <foreach collection="ids" item="id" separator="," open="(" close=")">/*设置左右为（） 分隔符为，*/
+            #{id}
+        </foreach>
+    </delete>
+
+
+<!--    # where brand_name = #{brand.brandName}/*由于此方法有三个参数，要获取实体类的对象要用@Param里的brand.brandName，#{brand.brandName}*/-->
+<!--    /*status是数字的 就不需要判断空字符串了*/-->
+<!--    /*where标签会自动的把第一个and去除掉*/-->
+    <select id="selectByPageAndCondition" resultMap="brandResultMap">
+
+        select *
+        from tb_brand1
+        <where>
+            <if test="brand.brandName != null and brand.brandName != ''">
+                and brand_name like #{brand.brandName}
+            </if>
+
+            <if test="brand.companyName != null and brand.companyName != ''">
+                and company_name like #{brand.companyName}
+            </if>
+            <if test="brand.status != null">
+                and status = #{brand.status}
+            </if>
+
+        </where>
+        limit #{begin}, #{size}
+    </select>
+
+
+<!--    # where brand_name = #{brandName}/*由于此方法有一个参数，要获取实体类的对象参数直接#{brandName}就可以*/-->
+<!--    /*status是数字的 就不需要判断空字符串了*/-->
+    <select id="selectTotalCountByCondition" resultType="java.lang.Integer">
+        select count(*)
+        from tb_brand1
+        <where>
+            <if test=" brandName != null and  brandName != ''">
+                and brand_name like #{brandName}
+            </if>
+
+            <if test=" companyName != null and  companyName != ''">
+                and company_name like #{companyName}
+            </if>
+            <if test=" status != null">
+                and status = #{status}
+            </if>
+
+        </where>
+        ;
+    </select>
+
+
+</mapper>

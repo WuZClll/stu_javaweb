@@ -1,0 +1,2 @@
+target目录：存放java文件编译后的字节码文件
+target内的jar包为Java文件打包后的jar文件
