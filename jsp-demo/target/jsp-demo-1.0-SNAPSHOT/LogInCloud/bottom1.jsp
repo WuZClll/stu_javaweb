@@ -12,12 +12,13 @@
 </head>
 <body>
 
-<form action="../jdbclogin/dolog.jsp" method="post">
+<form action="../jdbclogin/dolog1.jsp" method="post">
     <h1 align="center">用户登录</h1>
     <p align="center"> 用户名<input type="text" name="username"></p>
     <p align="center"> 密 码<input type="password" name="password"></p>
     <p align="center"><input type="submit" value="登录">
-        <input type="reset" value="取消"></p></td>
+        <input type="reset" value="取消"></td><a href = "../jdbclogin/register.jsp"><input type="button" value="注册页面"></a></p>
+
 </form>
 
 </body>

@@ -17,6 +17,7 @@
     String name = request.getParameter("username");
     String pass = request.getParameter("password");
     String mail = request.getParameter("email");
+    String id = request.getParameter("id");
     //访问数据库
     Connection conn = null;
     PreparedStatement pstmt = null;
@@ -31,16 +32,17 @@
 //        String sql = "select * from users where name = '" + name + "' and password = '" + pass + "'";
 //        pstmt = conn.createStatement();
         //防止SQL注入
-        String sql = "update users set name = ?,password = ?,";
+        String sql = "update users set name = ?,password = ?,email = ? where id = ?";
         pstmt = conn.prepareStatement(sql);
 //        rs = pstmt.executeQuery(sql);
         pstmt.setString(1, name);
         pstmt.setString(2, pass);
         pstmt.setString(3, mail);
+        pstmt.setString(4, id);
         int i = pstmt.executeUpdate();
         if (i == 1) {
-            out.println("注册成功");
-            out.println("登录账号？ <a href = \"../LogInCloud/bottom.jsp\">点击跳转至登陆页面</a>");
+            out.println("修改成功");
+            out.println("查看数据 <a href = \"../jdbclogin/listUser.jsp\">点击跳转遍历数据页面</a>");
         } else {
             out.println("注册失败");
         }

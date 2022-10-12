@@ -1,3 +1,5 @@
+package com.pojo;
+
 import java.sql.*;
 
 public class JDBCExample {

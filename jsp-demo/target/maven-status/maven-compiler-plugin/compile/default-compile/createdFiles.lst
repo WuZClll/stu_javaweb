@@ -1,4 +1,11 @@
+com\util\MyTools.class
 com\itheima\web\ServletDemo3.class
+com\pojo\Book.class
+com\util\DBUtil.class
+com\pojo\User.class
+com\pojo\Student.class
+com\itheima\web\ServletDemo2.class
+com\Dao\BookDB.class
 com\itheima\pojo\Brand.class
 com\itheima\web\ServletDemo1.class
-com\itheima\web\ServletDemo2.class
+com\pojo\JDBCExample.class

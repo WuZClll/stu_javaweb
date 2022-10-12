@@ -32,6 +32,10 @@
     <li><a href="../application/applicationDemo2.jsp">application范围的属性验证</a></li>
     <li><a href="../application/applicationDemo4.jsp">网站计数器</a></li>
     <li><a href="../guessNum/startGueNum.jsp">猜数字游戏2.0</a></li>
+    <li><a href="../jdbclogin/listUser.jsp">遍历数据</a></li>
+    <li><a href="../javaBean/bean01.jsp">javaBean01</a></li>
+    <li><a href="../Book/listBook.jsp">Book购物车</a></li>
+    <li><a href="../jdbclogin/register.jsp">注册用户</a></li>
     <li><a href="bottom.jsp">登录页面</a></li>
     <li><a href="logout.jsp">注销用户</a></li>
 
@@ -40,6 +44,7 @@
 } else {
 %>
 用户尚未登陆，登录？<a href="bottom.jsp">点击此处</a>跳转至登录页面
+没有账号？ <a href="jdbclogin/register.jsp">点击此处</a>跳转至注册页面
 <%
     }
 %>
